@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+<meta name="theme-color" content="#111318" />
+<title>KM Lucro Final</title>
+<style>
+:root{--bg:#0e1014;--panel:#171a20;--panel2:#1e222a;--text:#f3f4f6;--muted:#9aa3b2;--line:#2a2f39;--good:#30d158;--warn:#ffd60a;--bad:#ff453a;--accent:#f44336;--accent2:#ff6b5f;--shadow:0 14px 34px rgba(0,0,0,.26)}
+*{box-sizing:border-box}html,body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}body{min-height:100vh}.app{max-width:760px;margin:0 auto;padding:0 14px 96px}.top{position:sticky;top:0;z-index:20;background:linear-gradient(180deg,#0e1014 70%,rgba(14,16,20,.88));padding:18px 2px 12px;backdrop-filter:blur(10px)}.brand{display:flex;align-items:center;gap:11px}.logo{width:40px;height:40px;border-radius:13px;background:linear-gradient(145deg,var(--accent2),#b71c1c);display:grid;place-items:center;font-weight:900;box-shadow:var(--shadow)}.brand h1{font-size:21px;margin:0}.brand small{display:block;color:var(--muted);font-size:12px;margin-top:2px}.period{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin:14px 0 0;background:#13161b;padding:5px;border:1px solid var(--line);border-radius:14px}.period button{border:0;color:var(--muted);background:transparent;padding:9px;border-radius:10px;font-weight:700}.period button.active{background:var(--panel2);color:#fff}.hero{margin:14px 0;background:linear-gradient(145deg,#242932,#171a20);border:1px solid #303642;border-radius:20px;padding:18px;box-shadow:var(--shadow)}.label{color:var(--muted);font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.06em}.money{font-size:34px;font-weight:850;margin:4px 0}.sub{color:var(--muted);font-size:13px}.progress{height:9px;background:#303642;border-radius:999px;overflow:hidden;margin:13px 0 7px}.progress>i{display:block;height:100%;background:linear-gradient(90deg,var(--accent),#ff8a80);border-radius:inherit}.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.card{background:var(--panel);border:1px solid var(--line);border-radius:17px;padding:14px}.card .v{font-size:21px;font-weight:850;margin-top:4px}.card .mini{font-size:11px;color:var(--muted);margin-top:4px}.status{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:800;margin-top:7px}.dot{width:7px;height:7px;border-radius:50%;background:currentColor}.good{color:var(--good)}.warn{color:var(--warn)}.bad{color:var(--bad)}.section{margin-top:19px}.section h2{font-size:15px;margin:0 0 10px}.chart{display:flex;align-items:flex-end;gap:8px;height:128px;padding:13px;background:var(--panel);border:1px solid var(--line);border-radius:17px}.barwrap{flex:1;display:flex;height:100%;flex-direction:column;justify-content:flex-end;align-items:center;gap:5px}.bar{width:100%;max-width:38px;min-height:3px;background:linear-gradient(180deg,#ff7b70,var(--accent));border-radius:7px 7px 3px 3px}.barlabel{font-size:9px;color:var(--muted)}.empty{color:var(--muted);font-size:13px;text-align:center;padding:30px 10px}.fab{position:fixed;right:max(18px,calc((100vw - 760px)/2 + 18px));bottom:82px;width:58px;height:58px;border:0;border-radius:18px;background:linear-gradient(145deg,var(--accent2),#c62828);color:white;font-size:29px;box-shadow:0 16px 28px rgba(244,67,54,.28);z-index:30}.nav{position:fixed;z-index:25;left:50%;transform:translateX(-50%);bottom:0;width:min(760px,100%);background:rgba(18,21,26,.96);border-top:1px solid var(--line);display:grid;grid-template-columns:repeat(4,1fr);padding:7px 8px calc(7px + env(safe-area-inset-bottom));backdrop-filter:blur(14px)}.nav button{border:0;background:transparent;color:var(--muted);padding:7px 3px;font-size:10px;font-weight:700}.nav button b{display:block;font-size:18px;margin-bottom:2px}.nav button.active{color:#fff}.screen{display:none}.screen.active{display:block}.formcard{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:14px;margin:12px 0}.formcard h3{font-size:14px;margin:0 0 12px}.fields{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.field{display:flex;flex-direction:column;gap:6px}.field.full{grid-column:1/-1}.field label{font-size:11px;color:var(--muted);font-weight:700}.field input,.field select{width:100%;background:#101318;border:1px solid #303642;border-radius:12px;color:#fff;padding:12px;font-size:15px;outline:none}.field input:focus{border-color:#7f8794}.primary,.ghost,.danger{width:100%;border:0;border-radius:13px;padding:13px;font-weight:850;font-size:14px}.primary{background:var(--accent);color:#fff}.ghost{background:#242932;color:#fff;border:1px solid #343a46}.danger{background:#351817;color:#ff8178;border:1px solid #612522}.calcpreview{background:#101318;border:1px dashed #373d49;border-radius:14px;padding:12px;margin-top:10px;font-size:12px;color:var(--muted);line-height:1.6}.calcpreview strong{color:#fff}.list{display:flex;flex-direction:column;gap:9px}.item{background:var(--panel);border:1px solid var(--line);border-radius:15px;padding:13px}.itemtop{display:flex;justify-content:space-between;gap:10px}.item strong{font-size:14px}.item .amount{font-weight:850}.itemmeta{display:grid;grid-template-columns:repeat(3,1fr);gap:5px;margin-top:9px;color:var(--muted);font-size:11px}.itemactions{display:flex;gap:7px;margin-top:10px}.smallbtn{border:1px solid #353b46;background:#22262d;color:#e9edf3;padding:7px 10px;border-radius:9px;font-size:11px}.smallbtn.del{color:#ff8178}.note{font-size:11px;color:var(--muted);line-height:1.5}.breakdown{background:var(--panel);border:1px solid var(--line);border-radius:17px;padding:6px 14px}.brow{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid var(--line);font-size:12px}.brow:last-child{border-bottom:0}.brow span{color:var(--muted)}.brow strong{font-size:13px}.brow.total{margin-top:2px}.brow.total span,.brow.total strong{color:#fff;font-weight:850}.titleline{display:flex;justify-content:space-between;align-items:center;margin-top:15px}.titleline h2{font-size:18px;margin:0}.badge{font-size:10px;background:#252a33;border:1px solid #343a46;border-radius:999px;padding:5px 8px;color:var(--muted)}.toast{position:fixed;left:50%;transform:translateX(-50%) translateY(20px);bottom:88px;background:#292e36;border:1px solid #3a414d;color:#fff;padding:10px 14px;border-radius:12px;font-size:12px;opacity:0;pointer-events:none;transition:.22s;z-index:100}.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}@media(max-width:390px){.fields{grid-template-columns:1fr}.field.full{grid-column:auto}.money{font-size:30px}.itemmeta{grid-template-columns:repeat(2,1fr)}}
+
+/* Cenários visuais originais inspirados em anime de ação */
+.screen{position:relative;isolation:isolate}.screen:before{content:"";position:absolute;z-index:-1;inset:-18px -14px auto;height:260px;pointer-events:none;opacity:.42}
+#dashboard:before{background:radial-gradient(circle at 78% 22%,rgba(255,214,10,.45),transparent 20%),radial-gradient(circle at 25% 35%,rgba(244,67,54,.38),transparent 28%),linear-gradient(155deg,rgba(255,111,0,.18),transparent 65%);clip-path:polygon(0 0,100% 0,100% 72%,72% 62%,55% 82%,28% 65%,0 78%)}
+#entry:before{background:repeating-linear-gradient(155deg,rgba(33,150,243,.15) 0 2px,transparent 2px 18px),radial-gradient(circle at 80% 20%,rgba(33,150,243,.42),transparent 24%)}
+#history:before{background:radial-gradient(circle at 50% 0,rgba(255,214,10,.30),transparent 30%),repeating-radial-gradient(circle at 50% 10%,rgba(255,255,255,.08) 0 1px,transparent 2px 24px)}
+#settings:before{background:linear-gradient(90deg,rgba(0,188,212,.14) 1px,transparent 1px),linear-gradient(rgba(0,188,212,.12) 1px,transparent 1px),radial-gradient(circle at 82% 15%,rgba(0,188,212,.30),transparent 22%);background-size:28px 28px,28px 28px,auto}
+#dashboard .hero{border-color:rgba(255,193,7,.35);box-shadow:0 0 34px rgba(255,111,0,.10),var(--shadow)}
+#entry .formcard{border-color:rgba(33,150,243,.24)}#history .item{border-color:rgba(255,193,7,.20)}#settings .formcard{border-color:rgba(0,188,212,.22)}
+</style>
+
+<style id="finalTheme">
+:root{
+ --bg:#07111f;--panel:#101d31;--panel2:#172942;--text:#f8fbff;--muted:#9fb0c8;
+ --line:#29405f;--good:#55e67a;--warn:#ffd54a;--bad:#ff5b5b;
+ --accent:#ff7a00;--accent2:#ffc400;--blue:#168cff;--shadow:0 16px 38px rgba(0,0,0,.34)
+}
+html,body{background:
+ radial-gradient(circle at 85% 0%,rgba(22,140,255,.18),transparent 30%),
+ radial-gradient(circle at 15% 12%,rgba(255,122,0,.13),transparent 28%),
+ #07111f}
+.top{background:linear-gradient(180deg,rgba(7,17,31,.98) 72%,rgba(7,17,31,.82))}
+.logo{background:linear-gradient(145deg,#ffc400,#ff6a00);color:#07111f;transform:skew(-6deg);box-shadow:0 0 24px rgba(255,157,0,.28)}
+.brand h1{letter-spacing:.02em}.brand small{color:#b6c6dc}
+.hero{position:relative;overflow:hidden;background:linear-gradient(135deg,#172942,#0e1a2d 65%,#201b13);border-color:#36577f}
+.hero:after{content:"";position:absolute;width:170px;height:170px;border-radius:50%;right:-75px;top:-95px;border:18px solid rgba(255,196,0,.08);box-shadow:0 0 50px rgba(255,122,0,.12)}
+.card,.formcard,.breakdown,.chart,.item{background:linear-gradient(145deg,rgba(18,34,56,.96),rgba(11,24,41,.96));border-color:#294463}
+.primary,.fab{background:linear-gradient(135deg,#ff9a00,#ff5f00);color:#08111e;box-shadow:0 10px 28px rgba(255,122,0,.22)}
+.period button.active{background:linear-gradient(135deg,#173e69,#1d3150);box-shadow:inset 0 0 0 1px #2f5d8c}
+.progress>i,.bar{background:linear-gradient(90deg,#ff6a00,#ffc400)}
+.power-strip{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:14px 0}
+.power-card{position:relative;overflow:hidden;background:linear-gradient(145deg,#172942,#0d192a);border:1px solid #345274;border-radius:18px;padding:15px}
+.power-card.ideal{border-color:#a86b16;box-shadow:inset 0 0 22px rgba(255,153,0,.06)}
+.power-card.minimum{border-color:#256b80;box-shadow:inset 0 0 22px rgba(0,190,255,.06)}
+.power-card .pv{font-size:25px;font-weight:900;margin-top:5px}
+.power-card .pm{font-size:10px;color:var(--muted);margin-top:5px;line-height:1.35}
+.tag{display:inline-block;padding:4px 8px;border-radius:999px;font-size:9px;font-weight:900;letter-spacing:.06em;text-transform:uppercase}
+.tag.ideal{background:rgba(255,153,0,.15);color:#ffd36b}.tag.minimum{background:rgba(0,190,255,.13);color:#73ddff}
+.goal-detail{margin-top:9px;font-size:11px;color:var(--muted);line-height:1.5}
+.composition{margin-top:8px;padding:9px 10px;border-radius:11px;background:rgba(0,0,0,.16);font-size:10px;color:#b9c7da;line-height:1.45}
+@media(max-width:390px){.power-strip{grid-template-columns:1fr}.power-card .pv{font-size:23px}}
+</style>
+
+<link rel="manifest" href="./manifest.webmanifest"><link rel="icon" href="./icon.svg" type="image/svg+xml"></head>
+<body>
+<div class="app">
+  <header class="top">
+    <div class="brand"><div class="logo">KM</div><div><h1>KM Lucro</h1><small>Painel de batalha financeiro · FINAL</small></div></div>
+    <div id="periodTabs" class="period"><button data-period="day" class="active">Hoje</button><button data-period="week">Semana</button><button data-period="month">Mês</button></div>
+  </header>
+
+  <main id="dashboard" class="screen active">
+    <section class="hero">
+      <div class="label">Sobra após tudo <span id="periodName">hoje</span></div>
+      <div id="profitHero" class="money">R$ 0,00</div>
+      <div id="heroSub" class="sub">Sem lançamentos no período</div>
+      <div id="goalBox" style="display:none"><div class="progress"><i id="goalProgress" style="width:0%"></i></div><div id="goalText" class="sub"></div></div>
+    </section>
+    <div class="power-strip">
+      <div class="power-card ideal"><span class="tag ideal">Meta ideal do dia</span><div id="idealGoalCard" class="pv">R$ 0,00</div><div id="idealGoalDetail" class="pm">Meta financeira completa para o dia.</div></div>
+      <div class="power-card minimum"><span class="tag minimum">Mínimo operacional</span><div id="minimumGoalCard" class="pv">R$ 0,00</div><div id="minimumGoalDetail" class="pm">Valor estimado para cobrir a operação prevista.</div></div>
+    </div>
+    <div id="goalComposition" class="composition">Configure seus custos para ver a composição das metas.</div>
+    <div class="grid">
+      <div class="card"><div class="label">Faturamento</div><div id="grossCard" class="v">R$ 0,00</div><div class="mini">bruto informado</div></div>
+      <div class="card"><div class="label">Custo operação</div><div id="costCard" class="v">R$ 0,00</div><div id="costPct" class="mini">0% do faturamento</div></div>
+      <div class="card"><div class="label">Lucro da operação</div><div id="opProfitCard" class="v">R$ 0,00</div><div class="mini">antes das provisões e salário</div></div>
+      <div class="card"><div class="label">Salário reservado</div><div id="salaryCard" class="v">R$ 0,00</div><div class="mini">meta proporcional ao período</div></div>
+      <div class="card"><div class="label">R$/km</div><div id="perKmCard" class="v">R$ 0,00</div><div id="perKmStatus" class="status bad"><i class="dot"></i><span>sem dados</span></div></div>
+      <div class="card"><div class="label">R$/hora</div><div id="perHourCard" class="v">R$ 0,00</div><div id="perHourStatus" class="status bad"><i class="dot"></i><span>sem dados</span></div></div>
+      <div class="card"><div class="label">Quilômetros</div><div id="kmCard" class="v">0 km</div><div class="mini">rodados no período</div></div>
+      <div class="card"><div class="label">Horas</div><div id="hoursCard" class="v">0h</div><div class="mini">tempo trabalhado</div></div>
+    </div>
+    <section class="section"><h2>Meta fixa dinâmica do mês</h2>
+      <div class="grid">
+        <div class="card"><div class="label">Meta fixa mensal</div><div id="fixedGoalCard" class="v">R$ 0,00</div><div class="mini">parcela + reservas + salário</div></div>
+        <div class="card"><div class="label">Já coberto</div><div id="fixedCoveredCard" class="v">R$ 0,00</div><div id="fixedCoveredPct" class="mini">0% da meta</div></div>
+        <div class="card"><div class="label">Falta cobrir</div><div id="fixedRemainingCard" class="v">R$ 0,00</div><div class="mini">saldo do mês</div></div>
+        <div class="card"><div class="label">Nova meta / dia</div><div id="dynamicDailyCard" class="v">R$ 0,00</div><div id="remainingDaysCard" class="mini">0 dias planejados restantes</div></div>
+      </div>
+      <div id="dynamicPlanNote" class="note" style="margin-top:8px"></div>
+    </section>
+    <section class="section"><h2>Para onde foi o dinheiro</h2><div class="breakdown">
+      <div class="brow"><span>Combustível consumido</span><strong id="bdFuel">R$ 0,00</strong></div>
+      <div class="brow"><span>Manutenção</span><strong id="bdMaintenance">R$ 0,00</strong></div>
+      <div class="brow"><span>Depreciação</span><strong id="bdDepreciation">R$ 0,00</strong></div>
+       <div class="brow"><span>IPVA provisionado</span><strong id="bdIpva">R$ 0,00</strong></div>
+      <div class="brow"><span>Fixos + extras</span><strong id="bdExtras">R$ 0,00</strong></div>
+      <div class="brow"><span>Parcela do carro</span><strong id="bdCar">R$ 0,00</strong></div>
+      <div class="brow"><span>Reserva de emergência</span><strong id="bdReserve">R$ 0,00</strong></div>
+      <div class="brow"><span>Outras provisões mensais</span><strong id="bdOther">R$ 0,00</strong></div>
+      <div class="brow"><span>Seu salário</span><strong id="bdSalary">R$ 0,00</strong></div>
+      <div class="brow total"><span>Sobra livre após tudo</span><strong id="bdFree">R$ 0,00</strong></div>
+    </div><div id="allocationNote" class="note" style="margin-top:8px"></div></section>
+    <section class="section"><h2>Últimos 7 dias</h2><div id="chart" class="chart"><div class="empty" style="width:100%">Seu gráfico aparece após os primeiros lançamentos.</div></div></section>
+    <section class="section"><h2>Leitura rápida</h2><div id="insight" class="card"><div class="note">Faça seu primeiro lançamento para receber uma leitura automática da operação.</div></div></section>
+  </main>
+
+  <main id="entry" class="screen">
+    <div class="titleline"><h2 id="entryTitle">Novo lançamento</h2><span class="badge">leva menos de 1 min</span></div>
+    <div class="formcard"><h3>Produção do dia</h3><div class="fields">
+      <div class="field"><label>Data</label><input id="fDate" type="date"></div>
+      <div class="field"><label>Faturamento (R$)</label><input id="fGross" inputmode="decimal" placeholder="400,00"></div>
+      <div class="field"><label>KM rodados</label><input id="fKm" inputmode="decimal" placeholder="250"></div>
+      <div class="field"><label>Horas trabalhadas</label><input id="fHours" inputmode="decimal" placeholder="8,5"></div>
+    </div></div>
+    <div class="formcard"><h3>Combustível</h3><div class="fields">
+      <div class="field"><label>Preço do litro (R$)</label><input id="fFuelPrice" inputmode="decimal" placeholder="6,00"></div>
+      <div class="field"><label>Consumo do carro (km/L)</label><input id="fConsumption" inputmode="decimal" placeholder="12,0"></div>
+      <div class="field full"><label>Valor abastecido hoje (R$) · opcional</label><input id="fFueled" inputmode="decimal" placeholder="150,00"></div>
+    </div><div class="note" style="margin-top:9px">O custo da operação usa o combustível <b>consumido</b> pelos KM rodados. O abastecimento é guardado separadamente para não distorcer o lucro do dia.</div></div>
+    <div class="formcard"><h3>Outros custos</h3><div class="fields">
+      <div class="field"><label>Despesas extras (R$)</label><input id="fExtra" inputmode="decimal" placeholder="0,00"></div>
+      <div class="field"><label>Observação</label><input id="fNote" placeholder="Pedágio, estacionamento..."></div>
+    </div><div id="calcPreview" class="calcpreview">Preencha faturamento, KM e horas para visualizar os cálculos.</div></div>
+    <button id="saveEntry" class="primary">Salvar lançamento</button><button id="cancelEdit" class="ghost" style="margin-top:8px;display:none">Cancelar edição</button>
+  </main>
+
+  <main id="history" class="screen"><div class="titleline"><h2>Histórico</h2><span id="historyCount" class="badge">0 lançamentos</span></div><div id="historyList" class="list" style="margin-top:12px"></div></main>
+
+  <main id="settings" class="screen"><div class="titleline"><h2>Veículo e custos</h2><span class="badge">configurável</span></div>
+    <div class="formcard"><h3>Seu veículo</h3><div class="fields">
+      <div class="field full"><label>Nome do veículo</label><input id="sVehicle" placeholder="Meu carro"></div>
+      <div class="field"><label>Consumo padrão (km/L)</label><input id="sConsumption" inputmode="decimal"></div>
+      <div class="field"><label>Preço padrão do litro (R$)</label><input id="sFuelPrice" inputmode="decimal"></div>
+    </div></div>
+    <div class="formcard"><h3>Custo real</h3><div class="fields">
+      <div class="field"><label>Manutenção por KM (R$)</label><input id="sMaintenance" inputmode="decimal"></div>
+      <div class="field"><label>Depreciação por KM (R$)</label><input id="sDepreciation" inputmode="decimal"></div>
+      <div class="field full"><label>Custo fixo por dia trabalhado (R$)</label><input id="sFixedDaily" inputmode="decimal"></div>
+       <div class="field"><label>IPVA anual (R$)</label><input id="sIpvaAnnual" inputmode="decimal" placeholder="0,00"></div>
+       <div class="field"><label>KM previstos por dia</label><input id="sPlannedKmDay" inputmode="decimal" placeholder="260"></div>
+    </div><div class="note" style="margin-top:9px">Esses valores entram automaticamente no custo da operação. Você pode deixar qualquer um em zero.</div></div>
+    <div class="formcard"><h3>Planejamento mensal</h3><div class="fields">
+      <div class="field"><label>Parcela do carro (R$/mês)</label><input id="sCarInstallment" inputmode="decimal" placeholder="0,00"></div>
+      <div class="field"><label>Reserva de emergência (% do lucro acima do mínimo)</label><input id="sEmergencyReservePct" inputmode="decimal" placeholder="10"></div>
+      <div class="field"><label>Outras provisões (R$/mês)</label><input id="sOtherMonthly" inputmode="decimal" placeholder="0,00"></div>
+      <div class="field"><label>Salário desejado (R$/mês)</label><input id="sSalaryMonthly" inputmode="decimal" placeholder="3000,00"></div>
+      <div class="field full"><label>Dias da semana que pretende trabalhar</label>
+<div id="workWeekDays" style="display:grid;grid-template-columns:repeat(4,1fr);gap:7px">
+<label><input type="checkbox" value="1"> Seg</label><label><input type="checkbox" value="2"> Ter</label>
+<label><input type="checkbox" value="3"> Qua</label><label><input type="checkbox" value="4"> Qui</label>
+<label><input type="checkbox" value="5"> Sex</label><label><input type="checkbox" value="6"> Sáb</label>
+<label><input type="checkbox" value="0"> Dom</label></div></div>
+    </div><div class="note" style="margin-top:9px">A parcela do carro entra no mínimo operacional. A reserva de emergência é calculada automaticamente sobre o lucro que sobrar acima desse mínimo; 10% é o padrão. Salário e outras provisões vêm depois da reserva.</div></div>
+    <div class="formcard"><h3>Semáforo de desempenho</h3><div class="fields">
+      <div class="field"><label>Mínimo desejado R$/km</label><input id="sMinKm" inputmode="decimal"></div>
+      <div class="field"><label>Mínimo desejado R$/hora</label><input id="sMinHour" inputmode="decimal"></div>
+    </div></div>
+    <button id="saveSettings" class="primary">Salvar configurações</button>
+    <button id="exportData" class="ghost" style="margin-top:8px">Exportar backup (.json)</button>
+    <label class="ghost" style="margin-top:8px;display:block;text-align:center;cursor:pointer">Importar backup<input id="importData" type="file" accept="application/json" hidden></label>
+    <button id="clearData" class="danger" style="margin-top:18px">Apagar todos os lançamentos</button>
+    <p class="note">Os dados ficam somente neste aparelho. Faça backup periodicamente se os registros forem importantes.</p>
+  </main>
+</div>
+<button id="fab" class="fab" aria-label="Novo lançamento">+</button>
+<nav class="nav"><button data-screen="dashboard" class="active"><b>⌂</b>Painel</button><button data-screen="entry"><b>＋</b>Lançar</button><button data-screen="history"><b>≡</b>Histórico</button><button data-screen="settings"><b>⚙</b>Custos</button></nav>
+<div id="toast" class="toast"></div>
+<script>
+const KEY='kmLucro_v1';
+const defaultState={entries:[],settings:{vehicle:'Meu carro',consumption:12,fuelPrice:6,maintenancePerKm:.20,depreciationPerKm:.11,fixedDaily:0,ipvaAnnual:0,plannedKmDay:260,workWeekDays:[1,2,3,4,5,6],carInstallment:0,emergencyReserve:0,emergencyReservePct:10,otherMonthly:0,salaryMonthly:3000,workDaysMonth:26,minPerKm:1.5,minPerHour:35,goalDay:0,goalWeek:0,goalMonth:0}};
+let state=load(); let currentPeriod='day'; let editingId=null;
+function load(){try{const x=JSON.parse(localStorage.getItem(KEY));if(x&&Array.isArray(x.entries)&&x.settings)return{entries:x.entries,settings:{...defaultState.settings,...x.settings}};return structuredClone(defaultState)}catch(e){return structuredClone(defaultState)}}
+function persist(){localStorage.setItem(KEY,JSON.stringify(state))}
+function num(v){if(typeof v==='number')return v;let s=String(v??'').trim().replace(/\s/g,'');if(!s)return 0;if(s.includes(',')&&s.includes('.'))s=s.replace(/\./g,'').replace(',','.');else s=s.replace(',','.');return Number(s)||0}
+function money(v){return (Number(v)||0).toLocaleString('pt-BR',{style:'currency',currency:'BRL'})}
+function dec(v,d=1){return (Number(v)||0).toLocaleString('pt-BR',{minimumFractionDigits:d,maximumFractionDigits:d})}
+function todayISO(){const d=new Date();d.setMinutes(d.getMinutes()-d.getTimezoneOffset());return d.toISOString().slice(0,10)}
+function localDate(s){return new Date(s+'T12:00:00')}
+function calcEntry(e){
+ const km=num(e.km),gross=num(e.gross),hours=num(e.hours),price=num(e.fuelPrice),cons=num(e.consumption);
+ const fuelLiters=cons>0?km/cons:0,fuelCost=fuelLiters*price;
+ const maintenance=km*num(state.settings.maintenancePerKm),depreciation=km*num(state.settings.depreciationPerKm);
+ const plan=monthlyPlanLite(e.date),ipva=plan.workDays?num(state.settings.ipvaAnnual)/12/plan.workDays:0;
+ const fixed=num(state.settings.fixedDaily),extra=num(e.extra);
+ const operationCost=fuelCost+maintenance+depreciation+ipva+fixed+extra,profit=gross-operationCost;
+ return{fuelLiters,fuelCost,maintenance,depreciation,ipva,fixed,extra,operationCost,profit,margin:gross?profit/gross*100:0,perKm:km?gross/km:0,netPerKm:km?profit/km:0,perHour:hours?gross/hours:0,netPerHour:hours?profit/hours:0}
+}
+function summarize(entries){let r={gross:0,km:0,hours:0,cost:0,profit:0,fuel:0,maintenance:0,depreciation:0,ipva:0,fixed:0,extra:0};entries.forEach(e=>{const c=calcEntry(e);r.gross+=num(e.gross);r.km+=num(e.km);r.hours+=num(e.hours);r.cost+=c.operationCost;r.profit+=c.profit;r.fuel+=c.fuelCost;r.maintenance+=c.maintenance;r.depreciation+=c.depreciation;r.ipva+=c.ipva;r.fixed+=c.fixed;r.extra+=c.extra});r.perKm=r.km?r.gross/r.km:0;r.perHour=r.hours?r.gross/r.hours:0;r.margin=r.gross?r.profit/r.gross*100:0;return r}
+function monthKey(dateStr){return String(dateStr||todayISO()).slice(0,7)}
+function monthEntriesFor(dateStr=todayISO()){const key=monthKey(dateStr);return state.entries.filter(e=>monthKey(e.date)===key)}
+function fixedGoals(){const car=num(state.settings.carInstallment),reserve=0,other=num(state.settings.otherMonthly),salary=num(state.settings.salaryMonthly);return{car,reserve,other,salary,total:car+other+salary}}
+function plannedDatesForMonth(dateStr=todayISO()){
+ const ref=localDate(dateStr),y=ref.getFullYear(),m=ref.getMonth(),days=new Date(y,m+1,0).getDate();
+ const selected=(state.settings.workWeekDays&&state.settings.workWeekDays.length?state.settings.workWeekDays:[1,2,3,4,5,6]).map(Number),arr=[];
+ for(let d=1;d<=days;d++){const x=new Date(y,m,d,12);if(selected.includes(x.getDay()))arr.push(`${y}-${String(m+1).padStart(2,'0')}-${String(d).padStart(2,'0')}`)}
+ return arr
+}
+function monthlyPlanLite(dateStr=todayISO()){const dates=plannedDatesForMonth(dateStr);return{workDays:dates.length,dates}}
+function monthlyPlan(dateStr=todayISO()){
+ const ref=localDate(dateStr),entries=monthEntriesFor(dateStr).slice().sort((a,b)=>a.date.localeCompare(b.date)||a.createdAt-b.createdAt),goals=fixedGoals(),planned=plannedDatesForMonth(dateStr),workDays=planned.length;
+ const byDay={};entries.forEach(e=>(byDay[e.date]||(byDay[e.date]=[])).push(e));
+ const allocations={},workedDates=Object.keys(byDay).sort();let covered=0;
+ workedDates.forEach(date=>{const op=summarize(byDay[date]),available=Math.max(0,op.profit),alloc=Math.min(available,Math.max(0,goals.total-covered));allocations[date]=alloc;covered+=alloc});
+ const ratio=goals.total?Math.min(1,covered/goals.total):0;
+ const coveredBy={car:goals.car*ratio,reserve:goals.reserve*ratio,other:goals.other*ratio,salary:goals.salary*ratio};
+ const remainingBy={car:Math.max(0,goals.car-coveredBy.car),reserve:Math.max(0,goals.reserve-coveredBy.reserve),other:Math.max(0,goals.other-coveredBy.other),salary:Math.max(0,goals.salary-coveredBy.salary)};
+ const now=new Date(),isCurrent=ref.getFullYear()===now.getFullYear()&&ref.getMonth()===now.getMonth(),today=todayISO();
+ const remainingDates=isCurrent?planned.filter(d=>d>=today):planned.filter(d=>!workedDates.includes(d));
+ const missedEstimate=isCurrent?planned.filter(d=>d<today&&!workedDates.includes(d)).length:0;
+ const remainingWorkDays=remainingDates.length,remaining=Math.max(0,goals.total-covered),dynamicDaily=remaining?(remainingWorkDays>0?remaining/remainingWorkDays:remaining):0;
+ return{goals,workDays,workedDays:workedDates.length,covered,remaining,dynamicDaily,remainingWorkDays,allocations,coveredBy,remainingBy,missedEstimate,daysInMonth:new Date(ref.getFullYear(),ref.getMonth()+1,0).getDate(),plannedDates:planned,remainingDates}
+}
+
+function allocationSummary(entries){
+  const op=summarize(entries),plan=monthlyPlan(entries[0]?.date||todayISO()),dates=[...new Set(entries.map(e=>e.date))],allocated=dates.reduce((t,d)=>t+(plan.allocations[d]||0),0),ratio=plan.goals.total?allocated/plan.goals.total:0;
+  const car=plan.goals.car*ratio,reserve=plan.goals.reserve*ratio,other=plan.goals.other*ratio,salary=plan.goals.salary*ratio,provisions=car+reserve+other,free=op.profit-allocated;
+  return{...op,days:dates.length,car,reserve,other,salary,provisions,allocated,free,plan};
+}
+function startOfWeek(d){const x=new Date(d);const day=(x.getDay()+6)%7;x.setDate(x.getDate()-day);x.setHours(0,0,0,0);return x}
+function filtered(period){const now=new Date(),today=todayISO();return state.entries.filter(e=>{if(period==='day')return e.date===today;const d=localDate(e.date);if(period==='week'){const s=startOfWeek(now),end=new Date(s);end.setDate(s.getDate()+7);return d>=s&&d<end}return d.getFullYear()===now.getFullYear()&&d.getMonth()===now.getMonth()})}
+function statusClass(value,min){if(!value)return['bad','sem dados'];if(value>=min)return['good','bom'];if(value>=min*.85)return['warn','atenção'];return['bad','abaixo da meta']}
+function dailyGoalPlan(plan){
+ const km=Math.max(0,num(state.settings.plannedKmDay)||260),cons=num(state.settings.consumption),price=num(state.settings.fuelPrice);
+ const fuel=cons>0?km/cons*price:0,maintenance=km*num(state.settings.maintenancePerKm),depreciation=km*num(state.settings.depreciationPerKm);
+ const ipva=plan.workDays?num(state.settings.ipvaAnnual)/12/plan.workDays:0,fixed=num(state.settings.fixedDaily);
+ const days=Math.max(1,plan.remainingWorkDays||plan.workDays||1);
+ const carDaily=(plan.remainingBy?plan.remainingBy.car:plan.goals.car)/days;
+ const idealExtras=((plan.remainingBy?plan.remainingBy.reserve:plan.goals.reserve)+(plan.remainingBy?plan.remainingBy.other:plan.goals.other)+(plan.remainingBy?plan.remainingBy.salary:plan.goals.salary))/days;
+ const minimum=fuel+maintenance+depreciation+ipva+fixed+carDaily;
+ return{km,fuel,maintenance,depreciation,ipva,fixed,carDaily,idealExtras,minimum,ideal:minimum+idealExtras}
+}
+function renderDailyGoals(plan){
+ const g=dailyGoalPlan(plan);
+ document.querySelector('#idealGoalCard').textContent=money(g.ideal);
+ document.querySelector('#minimumGoalCard').textContent=money(g.minimum);
+ document.querySelector('#idealGoalDetail').textContent=`Para ${dec(g.km,0)} km: mínimo sustentável + salário e reservas de ${money(g.idealExtras)}.`;
+ document.querySelector('#minimumGoalDetail').textContent=`Para ${dec(g.km,0)} km: cobre operação prevista + parcela diária do carro (${money(g.carDaily)}).`;
+ document.querySelector('#goalComposition').textContent=`Composição prevista: combustível ${money(g.fuel)} · manutenção ${money(g.maintenance)} · depreciação ${money(g.depreciation)} · IPVA ${money(g.ipva)} · fixo diário ${money(g.fixed)} · parcela do carro ${money(g.carDaily)} · salário/reservas ${money(g.idealExtras)}. A meta ideal é um norte; abaixo dela não significa automaticamente prejuízo.`;
+}
+function renderDashboard(){const list=filtered(currentPeriod),s=allocationSummary(list),plan=monthlyPlan();document.querySelector('#profitHero').textContent=money(s.free);document.querySelector('#grossCard').textContent=money(s.gross);document.querySelector('#costCard').textContent=money(s.cost);document.querySelector('#opProfitCard').textContent=money(s.profit);document.querySelector('#salaryCard').textContent=money(s.salary);document.querySelector('#costPct').textContent=(s.gross?dec(s.cost/s.gross*100,0):'0')+'% do faturamento';document.querySelector('#perKmCard').textContent=money(s.perKm);document.querySelector('#perHourCard').textContent=money(s.perHour);document.querySelector('#kmCard').textContent=dec(s.km,0)+' km';document.querySelector('#hoursCard').textContent=dec(s.hours,1)+'h';document.querySelector('#heroSub').textContent=list.length?`${s.days} dia${s.days!==1?'s':''} trabalhado${s.days!==1?'s':''} · lucro operacional ${money(s.profit)}`:'Sem lançamentos no período';const names={day:'hoje',week:'na semana',month:'no mês'};document.querySelector('#periodName').textContent=names[currentPeriod];[['#perKmStatus',s.perKm,num(state.settings.minPerKm)],['#perHourStatus',s.perHour,num(state.settings.minPerHour)]].forEach(([sel,val,min])=>{const [cl,tx]=statusClass(val,min),el=document.querySelector(sel);el.className='status '+cl;el.querySelector('span').textContent=tx});const goal=currentPeriod==='day'?num(state.settings.goalDay):currentPeriod==='week'?num(state.settings.goalWeek):num(state.settings.goalMonth);const gb=document.querySelector('#goalBox');if(goal>0){gb.style.display='block';const pct=Math.min(100,s.gross/goal*100);document.querySelector('#goalProgress').style.width=pct+'%';document.querySelector('#goalText').textContent=`${dec(pct,0)}% da meta · faltam ${money(Math.max(0,goal-s.gross))}`}else gb.style.display='none';renderDailyGoals(plan);renderDynamicPlan(plan);renderAllocation(s);renderChart();renderInsight(s,list.length)}
+function renderDynamicPlan(plan){const pct=plan.goals.total?Math.min(100,plan.covered/plan.goals.total*100):0;document.querySelector('#fixedGoalCard').textContent=money(plan.goals.total);document.querySelector('#fixedCoveredCard').textContent=money(plan.covered);document.querySelector('#fixedCoveredPct').textContent=`${dec(pct,0)}% da meta`;document.querySelector('#fixedRemainingCard').textContent=money(plan.remaining);document.querySelector('#dynamicDailyCard').textContent=money(plan.dynamicDaily);document.querySelector('#remainingDaysCard').textContent=`${plan.remainingWorkDays} dia${plan.remainingWorkDays!==1?'s':''} planejado${plan.remainingWorkDays!==1?'s':''} restante${plan.remainingWorkDays!==1?'s':''}`;let txt=plan.goals.total?`O calendário real tem ${plan.daysInMonth} dias e sua escala gera ${plan.workDays} dias planejados neste mês. A meta fixa de hoje cobre somente parcela, salário e reservas configuradas; custos da operação aparecem separados na meta ideal.`:'Cadastre parcela, reserva, outras provisões e salário em Custos para ativar a meta fixa dinâmica.';if(plan.missedEstimate>0)txt+=` O calendário indica cerca de ${plan.missedEstimate} dia${plan.missedEstimate!==1?'s':''} planejado${plan.missedEstimate!==1?'s':''} sem lançamento até agora; por isso a meta dos próximos dias aumentou.`;if(plan.remaining>0&&plan.remainingWorkDays===0)txt+=` Não restam dias planejados no cálculo; o saldo pendente de ${money(plan.remaining)} precisa ser coberto em dias extras.`;document.querySelector('#dynamicPlanNote').textContent=txt}
+function renderAllocation(s){[['#bdFuel',s.fuel],['#bdMaintenance',s.maintenance],['#bdDepreciation',s.depreciation],['#bdIpva',s.ipva],['#bdExtras',s.fixed+s.extra],['#bdCar',s.car],['#bdReserve',s.reserve],['#bdOther',s.other],['#bdSalary',s.salary],['#bdFree',s.free]].forEach(([q,v])=>document.querySelector(q).textContent=money(v));document.querySelector('#allocationNote').textContent=s.days?`Do lucro operacional deste período, ${money(s.allocated)} foi usado para cobrir as metas fixas mensais. O app distribui essa cobertura proporcionalmente entre parcela, reserva, outras provisões e salário.`:`Faça lançamentos para acompanhar quanto da meta fixa mensal já foi coberto.`;const freeEl=document.querySelector('#bdFree');freeEl.className=s.free>=0?'good':'bad'}
+function renderInsight(s,count){const el=document.querySelector('#insight');if(!count){el.innerHTML='<div class="note">Faça seu primeiro lançamento para receber uma leitura automática da operação.</div>';return}let parts=[];parts.push(`Você faturou <strong>${money(s.gross)}</strong>, gastou <strong>${money(s.cost)}</strong> para operar e teve <strong>${money(s.profit)}</strong> de lucro operacional.`);if(s.provisions>0)parts.push(`Para parcela, reserva e outras provisões, o planejamento separa <strong>${money(s.provisions)}</strong>.`);if(s.salary>0)parts.push(`Para seu salário, a parcela proporcional do período é <strong>${money(s.salary)}</strong>.`);parts.push(`Depois de tudo, a sobra livre é <strong>${money(s.free)}</strong>.`);const a=statusClass(s.perKm,num(state.settings.minPerKm))[1],b=statusClass(s.perHour,num(state.settings.minPerHour))[1];parts.push(`Produção: <strong>${money(s.perKm)}/km</strong> (${a}) e <strong>${money(s.perHour)}/h</strong> (${b}).`);if(s.free<0)parts.push('Neste ritmo, o faturamento do período ainda não cobre todos os custos, provisões e o salário planejado.');else if(s.gross&&s.cost/s.gross>.45)parts.push('O custo operacional consumiu mais de 45% do faturamento; vale revisar consumo e custos por KM.');el.innerHTML='<div class="note">'+parts.join(' ')+'</div>'}
+function renderChart(){const el=document.querySelector('#chart'),days=[];for(let i=6;i>=0;i--){const d=new Date();d.setDate(d.getDate()-i);d.setHours(12,0,0,0);const iso=d.toISOString().slice(0,10);const sum=allocationSummary(state.entries.filter(e=>e.date===iso));days.push({d,profit:sum.free})}const max=Math.max(0,...days.map(x=>Math.max(0,x.profit)));if(!state.entries.length){el.innerHTML='<div class="empty" style="width:100%">Seu gráfico aparece após os primeiros lançamentos.</div>';return}el.innerHTML=days.map(x=>{const h=max?Math.max(3,Math.max(0,x.profit)/max*86):3;return `<div class="barwrap" title="${money(x.profit)}"><div class="bar" style="height:${h}px;opacity:${x.profit<0?.35:1}"></div><div class="barlabel">${['dom','seg','ter','qua','qui','sex','sáb'][x.d.getDay()]}</div></div>`}).join('')}
+function nav(screen){document.querySelectorAll('.screen').forEach(x=>x.classList.toggle('active',x.id===screen));document.querySelectorAll('.nav button').forEach(x=>x.classList.toggle('active',x.dataset.screen===screen));document.querySelector('#periodTabs').style.display=screen==='dashboard'?'grid':'none';document.querySelector('#fab').style.display=screen==='entry'?'none':'block';if(screen==='dashboard')renderDashboard();if(screen==='history')renderHistory();if(screen==='settings')loadSettings();if(screen==='entry'&&!editingId)prepareEntry()}
+function prepareEntry(){document.querySelector('#fDate').value=todayISO();document.querySelector('#fGross').value='';document.querySelector('#fKm').value='';document.querySelector('#fHours').value='';document.querySelector('#fFuelPrice').value=state.settings.fuelPrice||'';document.querySelector('#fConsumption').value=state.settings.consumption||'';document.querySelector('#fFueled').value='';document.querySelector('#fExtra').value='';document.querySelector('#fNote').value='';document.querySelector('#entryTitle').textContent='Novo lançamento';document.querySelector('#cancelEdit').style.display='none';renderPreview()}
+function formEntry(){return{date:document.querySelector('#fDate').value||todayISO(),gross:num(document.querySelector('#fGross').value),km:num(document.querySelector('#fKm').value),hours:num(document.querySelector('#fHours').value),fuelPrice:num(document.querySelector('#fFuelPrice').value),consumption:num(document.querySelector('#fConsumption').value),fueled:num(document.querySelector('#fFueled').value),extra:num(document.querySelector('#fExtra').value),note:document.querySelector('#fNote').value.trim()}}
+function reserveCalc(e,c,plan){const days=Math.max(1,plan.remainingWorkDays||plan.workDays||1);const carDaily=Math.min(plan.remainingBy?.car??plan.goals.car,(plan.remainingBy?.car??plan.goals.car)/days);const base=Math.max(0,c.profit-carDaily);const pct=Math.max(0,num(state.settings.emergencyReservePct)||10);return{carDaily,base,pct,reserve:base*pct/100}}
+function renderPreview(){const e=formEntry(),c=calcEntry(e),el=document.querySelector('#calcPreview');if(!e.gross&&!e.km&&!e.hours){el.textContent='Preencha faturamento, KM e horas para visualizar os cálculos.';return}const plan=monthlyPlan(e.date),r=reserveCalc(e,c,plan),salaryAvailable=Math.max(0,r.base-r.reserve);el.innerHTML=`Custo combustível: <strong>${money(c.fuelCost)}</strong> · manutenção: <strong>${money(c.maintenance)}</strong> · depreciação: <strong>${money(c.depreciation)}</strong> · IPVA: <strong>${money(c.ipva)}</strong><br>Custo operacional: <strong>${money(c.operationCost)}</strong> · parcela diária do carro: <strong>${money(r.carDaily)}</strong><br><strong>Mínimo do dia: ${money(c.operationCost+r.carDaily)}</strong><br>Lucro acima do mínimo: <strong>${money(r.base)}</strong><br><span style="color:#ffd36b;font-size:14px"><strong>Separe hoje na reserva: ${money(r.reserve)}</strong> (${dec(r.pct,0)}%)</span><br>Disponível depois da reserva para salário/provisões: <strong>${money(salaryAvailable)}</strong><br>Bruto por KM: <strong>${money(c.perKm)}</strong> · bruto por hora: <strong>${money(c.perHour)}</strong>`}
+function saveEntry(){const e=formEntry();if(!e.gross||!e.km||!e.hours){toast('Informe faturamento, KM e horas.');return}if(!e.fuelPrice||!e.consumption){toast('Informe preço do combustível e consumo.');return}if(editingId){const i=state.entries.findIndex(x=>x.id===editingId);if(i>=0)state.entries[i]={...state.entries[i],...e};editingId=null}else state.entries.push({...e,id:crypto.randomUUID?crypto.randomUUID():String(Date.now()),createdAt:Date.now()});state.entries.sort((a,b)=>b.date.localeCompare(a.date)||b.createdAt-a.createdAt);persist();toast('Lançamento salvo.');prepareEntry();nav('dashboard')}
+function renderHistory(){const el=document.querySelector('#historyList');document.querySelector('#historyCount').textContent=`${state.entries.length} lançamento${state.entries.length!==1?'s':''}`;if(!state.entries.length){el.innerHTML='<div class="empty">Nenhum lançamento ainda.</div>';return}el.innerHTML=state.entries.map(e=>{const c=calcEntry(e),d=localDate(e.date).toLocaleDateString('pt-BR');return `<div class="item"><div class="itemtop"><div><strong>${d}</strong><div class="note">${e.note||state.settings.vehicle}</div></div><div class="amount ${c.profit>=0?'good':'bad'}">${money(c.profit)}</div></div><div class="itemmeta"><span>Bruto ${money(e.gross)}</span><span>${dec(e.km,0)} km</span><span>${dec(e.hours,1)} h</span><span>${money(c.perKm)}/km</span><span>${money(c.perHour)}/h</span><span>Custo ${money(c.operationCost)}</span></div><div class="itemactions"><button class="smallbtn" onclick="editEntry('${e.id}')">Editar</button><button class="smallbtn del" onclick="deleteEntry('${e.id}')">Excluir</button></div></div>`}).join('')}
+function editEntry(id){const e=state.entries.find(x=>x.id===id);if(!e)return;editingId=id;nav('entry');document.querySelector('#entryTitle').textContent='Editar lançamento';document.querySelector('#cancelEdit').style.display='block';[['#fDate',e.date],['#fGross',e.gross],['#fKm',e.km],['#fHours',e.hours],['#fFuelPrice',e.fuelPrice],['#fConsumption',e.consumption],['#fFueled',e.fueled],['#fExtra',e.extra],['#fNote',e.note]].forEach(([s,v])=>document.querySelector(s).value=v??'');renderPreview()}
+function deleteEntry(id){if(!confirm('Excluir este lançamento?'))return;state.entries=state.entries.filter(x=>x.id!==id);persist();renderHistory();toast('Lançamento excluído.')}
+function loadSettings(){const s=state.settings;setTimeout(()=>document.querySelectorAll('#workWeekDays input').forEach(x=>x.checked=(s.workWeekDays||[1,2,3,4,5,6]).map(Number).includes(Number(x.value))),0);[['#sVehicle',s.vehicle],['#sConsumption',s.consumption],['#sFuelPrice',s.fuelPrice],['#sMaintenance',s.maintenancePerKm],['#sDepreciation',s.depreciationPerKm],['#sFixedDaily',s.fixedDaily],['#sIpvaAnnual',s.ipvaAnnual],['#sPlannedKmDay',s.plannedKmDay],['#sCarInstallment',s.carInstallment],['#sEmergencyReservePct',s.emergencyReservePct??10],['#sOtherMonthly',s.otherMonthly],['#sSalaryMonthly',s.salaryMonthly],['#sMinKm',s.minPerKm],['#sMinHour',s.minPerHour]].forEach(([q,v])=>document.querySelector(q).value=v??'')}
+function saveSettings(){state.settings={...state.settings,vehicle:document.querySelector('#sVehicle').value.trim()||'Meu carro',consumption:num(document.querySelector('#sConsumption').value),fuelPrice:num(document.querySelector('#sFuelPrice').value),maintenancePerKm:num(document.querySelector('#sMaintenance').value),depreciationPerKm:num(document.querySelector('#sDepreciation').value),fixedDaily:num(document.querySelector('#sFixedDaily').value),ipvaAnnual:num(document.querySelector('#sIpvaAnnual').value),plannedKmDay:num(document.querySelector('#sPlannedKmDay').value)||260,workWeekDays:[...document.querySelectorAll('#workWeekDays input:checked')].map(x=>Number(x.value)),carInstallment:num(document.querySelector('#sCarInstallment').value),emergencyReserve:0,emergencyReservePct:num(document.querySelector('#sEmergencyReservePct').value)||10,otherMonthly:num(document.querySelector('#sOtherMonthly').value),salaryMonthly:num(document.querySelector('#sSalaryMonthly').value),minPerKm:num(document.querySelector('#sMinKm').value),minPerHour:num(document.querySelector('#sMinHour').value)};persist();toast('Configurações salvas.');renderDashboard()}
+function exportData(){const blob=new Blob([JSON.stringify(state,null,2)],{type:'application/json'}),a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='km-lucro-backup-'+todayISO()+'.json';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),500)}
+function toast(t){const el=document.querySelector('#toast');el.textContent=t;el.classList.add('show');clearTimeout(window._tt);window._tt=setTimeout(()=>el.classList.remove('show'),1800)}
+document.querySelectorAll('.nav button').forEach(b=>b.onclick=()=>nav(b.dataset.screen));document.querySelector('#fab').onclick=()=>nav('entry');document.querySelectorAll('#periodTabs button').forEach(b=>b.onclick=()=>{currentPeriod=b.dataset.period;document.querySelectorAll('#periodTabs button').forEach(x=>x.classList.toggle('active',x===b));renderDashboard()});document.querySelector('#saveEntry').onclick=saveEntry;document.querySelector('#cancelEdit').onclick=()=>{editingId=null;prepareEntry()};document.querySelector('#saveSettings').onclick=saveSettings;document.querySelector('#exportData').onclick=exportData;document.querySelector('#clearData').onclick=()=>{if(confirm('Apagar todos os lançamentos? Essa ação não pode ser desfeita.')){state.entries=[];persist();renderHistory();toast('Lançamentos apagados.')}};document.querySelector('#importData').onchange=async ev=>{const f=ev.target.files[0];if(!f)return;try{const x=JSON.parse(await f.text());if(!x.entries||!x.settings)throw 0;state={entries:x.entries,settings:{...defaultState.settings,...x.settings}};persist();toast('Backup importado.');loadSettings();renderDashboard()}catch(e){toast('Arquivo de backup inválido.')}ev.target.value=''};document.querySelectorAll('#entry input').forEach(i=>i.addEventListener('input',renderPreview));
+prepareEntry();renderDashboard();
+</script>
+<script>if("serviceWorker" in navigator)window.addEventListener("load",()=>navigator.serviceWorker.register("./sw.js").catch(console.warn));</script></body>
+</html>
